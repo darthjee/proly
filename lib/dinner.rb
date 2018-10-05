@@ -11,29 +11,17 @@ class Dinner
   end
 
   def average
-    av = Average.new
-    repeats.times.map do
-      av + repetition
-    end
-    av.average
+    Average.new.times(repeats) { repetition }.average
   end
 
   private
 
   def repetition
-    av = Average.new
-    trials.times do
-      av + trial
-    end
-    av.average
+    Average.new.times(trials) { trial }.average
   end
 
   def trial
-    av = Average.new
-    experiments.times do
-      av + experiment
-    end
-    av.average
+    Average.new.times(experiments) { experiment }.average
   end
 
   def experiment

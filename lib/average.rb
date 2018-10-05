@@ -3,6 +3,13 @@ class Average
     sum * 1.0 / length
   end
 
+  def times(count)
+    count.times do
+      self + yield
+    end
+    self
+  end
+
   def +(value)
     self.sum += value
     self.length += 1
