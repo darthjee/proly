@@ -3,7 +3,7 @@ require 'darthjee/core_ext'
 class Dinner
   attr_reader :experiments, :trials, :miniatures, :repeats
 
-  def initialize(repeats: 100, experiments: 100, trials: 100, miniatures: 3)
+  def initialize(repeats: 1000, experiments: 1000, trials: 1000, miniatures: 3)
     @repeats = repeats
     @experiments = experiments
     @trials = trials
