@@ -11,12 +11,14 @@ class Dinner
   end
 
   def average
-    Average.new(repeats) { repetition }.average
+    Average.new(repeats) do |r|
+      repetition(r).tap { |a| puts "Repetition #{r}: #{a}" }
+    end.average
   end
 
   private
 
-  def repetition
+  def repetition(r)
     Average.new(trials) { trial }.average
   end
 

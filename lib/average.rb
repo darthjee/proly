@@ -8,8 +8,8 @@ class Average
   end
 
   def times(count)
-    count.times do
-      self + yield
+    count.times do |*args|
+      self + yield(*args)
     end
     self
   end
