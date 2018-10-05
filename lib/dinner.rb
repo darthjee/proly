@@ -3,7 +3,7 @@ require 'darthjee/core_ext'
 class Dinner
   attr_reader :experiments, :trials, :miniatures, :repeats
 
-  def initialize(repeats: 1000, experiments: 10000, trials: 10000, miniatures: 3)
+  def initialize(repeats: 100, experiments: 100, trials: 100, miniatures: 3)
     @repeats = repeats
     @experiments = experiments
     @trials = trials
@@ -11,23 +11,29 @@ class Dinner
   end
 
   def average
+    av = Average.new
     repeats.times.map do
-      repetition
-    end.average
+      av + repetition
+    end
+    av.average
   end
 
   private
 
   def repetition
-    trials.times.map do
-      trial
-    end.average
+    av = Average.new
+    trials.times do
+      av + trial
+    end
+    av.average
   end
 
   def trial
-    experiments.times.map do
-      experiment
-    end.average
+    av = Average.new
+    experiments.times do
+      av + experiment
+    end
+    av.average
   end
 
   def experiment
@@ -71,5 +77,3 @@ class Dinner
     end
   end
 end
-
-puts Dinner.new.average
