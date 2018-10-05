@@ -1,4 +1,8 @@
 class Average
+  def initialize(times=0, &block)
+    self.times(times, &block)
+  end
+
   def average
     sum * 1.0 / length
   end

@@ -11,17 +11,17 @@ class Dinner
   end
 
   def average
-    Average.new.times(repeats) { repetition }.average
+    Average.new(repeats) { repetition }.average
   end
 
   private
 
   def repetition
-    Average.new.times(trials) { trial }.average
+    Average.new(trials) { trial }.average
   end
 
   def trial
-    Average.new.times(experiments) { experiment }.average
+    Average.new(experiments) { experiment }.average
   end
 
   def experiment
